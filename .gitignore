@@ -36,3 +36,5 @@
 **/ios/
 
 **/web/
+example/pubspec.lock
+pubspec.lock

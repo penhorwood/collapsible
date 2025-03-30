@@ -8,6 +8,7 @@ library collapsible;
 export 'src/collapsible.dart';
 export 'src/collapsibleButton.dart';
 export 'src/collapsibleIcon.dart';
+export 'src/collapsibleEnums.dart';
 export 'src/collapsibleController.dart';
 export 'src/collapsiblePanel.dart';
 export 'src/collapsibleThemeData.dart';
