@@ -1,6 +1,6 @@
 name: collapsible
 description: A Flutter widget that can be expanded or collapsed by clicking on a header or an icon.
-version: 6.0.0
+version: 6.1.0
 #author: Alexander Ryzhov <aryzhov07@gmail.com>
 #forked: Andrew Penhorwood - forked on 2025-03-28
 
