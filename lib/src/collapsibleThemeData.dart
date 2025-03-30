@@ -213,32 +213,33 @@ class CollapsibleThemeData {
 				&& collapseIcon            != null;
 	}
 
-	bool operator == (dynamic o){
+	@override
+	bool operator ==(Object other){
 
-		if( identical(this, o) ){
+		if( identical(this, other) ){
 			return true;
 
-		} else if( o is CollapsibleThemeData ){
+		} else if( other is CollapsibleThemeData ){
 
-			return     iconColor                == o.iconColor
-					&& useInkWell               == o.useInkWell
-					&& inkWellBorderRadius      == o.inkWellBorderRadius
-					&& animationDuration        == o.animationDuration
-					&& scrollAnimationDuration  == o.scrollAnimationDuration
-					&& crossFadePoint           == o.crossFadePoint
-					&& fadeCurve                == o.fadeCurve
-					&& sizeCurve                == o.sizeCurve
-					&& alignment                == o.alignment
-					&& headerAlignment          == o.headerAlignment
-					&& bodyAlignment            == o.bodyAlignment
-					&& iconPlacement            == o.iconPlacement
-					&& tapHeaderToExpand        == o.tapHeaderToExpand
-					&& tapBodyToExpand          == o.tapBodyToExpand
-					&& tapBodyToCollapse        == o.tapBodyToCollapse
-					&& hasIcon                  == o.hasIcon
-					&& iconRotationAngle        == o.iconRotationAngle
-					&& expandIcon               == o.expandIcon
-					&& collapseIcon             == o.collapseIcon;
+			return     iconColor                == other.iconColor
+					&& useInkWell               == other.useInkWell
+					&& inkWellBorderRadius      == other.inkWellBorderRadius
+					&& animationDuration        == other.animationDuration
+					&& scrollAnimationDuration  == other.scrollAnimationDuration
+					&& crossFadePoint           == other.crossFadePoint
+					&& fadeCurve                == other.fadeCurve
+					&& sizeCurve                == other.sizeCurve
+					&& alignment                == other.alignment
+					&& headerAlignment          == other.headerAlignment
+					&& bodyAlignment            == other.bodyAlignment
+					&& iconPlacement            == other.iconPlacement
+					&& tapHeaderToExpand        == other.tapHeaderToExpand
+					&& tapBodyToExpand          == other.tapBodyToExpand
+					&& tapBodyToCollapse        == other.tapBodyToCollapse
+					&& hasIcon                  == other.hasIcon
+					&& iconRotationAngle        == other.iconRotationAngle
+					&& expandIcon               == other.expandIcon
+					&& collapseIcon             == other.collapseIcon;
 
 		} else {
 			return false;
