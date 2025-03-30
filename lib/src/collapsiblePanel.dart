@@ -17,6 +17,9 @@ class CollapsiblePanel extends StatelessWidget {
 	/// The widget shown in the expanded state
 	final Widget expanded;
 
+	/// The initial expanded
+	final bool initialExpanded;
+
 	/// Builds an Collapsible object, optional
 	final CollapsibleBuilder? builder;
 
@@ -28,13 +31,14 @@ class CollapsiblePanel extends StatelessWidget {
 	final CollapsibleThemeData? theme;
 
 	const CollapsiblePanel({
-		super.key,
-		this.header,
-		required this.collapsed,
-		required this.expanded,
-		this.controller,
-		this.builder,
-		this.theme,
+		super.key
+		, this.header
+		, required this.collapsed
+		, required this.expanded
+		, this.initialExpanded = false
+		, this.controller
+		, this.builder
+		, this.theme
 	});
 
 	@override
@@ -138,14 +142,16 @@ class CollapsiblePanel extends StatelessWidget {
 
 		if (controller != null) {
 			return CollapsibleNotifier(
-				controller: controller,
-				child: panel,
+				controller: controller
+				, initialExpanded: initialExpanded
+				, child: panel
 			);
 		} else {
 			final controller = CollapsibleController.of(context, rebuildOnChange: false);
 			if (controller == null) {
 				return CollapsibleNotifier(
-					child: panel,
+					  initialExpanded: initialExpanded
+					, child: panel
 				);
 			} else {
 				return panel;
