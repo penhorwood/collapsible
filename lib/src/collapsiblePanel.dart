@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import '/src/collapsibleEnums.dart';
 import '/src/collapsibleThemeData.dart';
 import '/src/collapsibleController.dart';

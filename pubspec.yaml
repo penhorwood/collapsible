@@ -5,12 +5,14 @@ version: 6.1.0
 #forked: Andrew Penhorwood - forked on 2025-03-28
 
 environment:
-  sdk: ">=2.17.0 <4.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.13.0 <4.0.0"
+  flutter: ">=3.47.0"
 
 dependencies:
   flutter:
     sdk: flutter
+  material_ui: any
+  cupertino_ui: any
 
 dev_dependencies:
   flutter_test:
