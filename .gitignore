@@ -38,3 +38,7 @@
 **/web/
 example/pubspec.lock
 pubspec.lock
+
+# FVM Version Cache
+.fvm/
+/.fvmrc

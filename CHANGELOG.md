@@ -1,3 +1,7 @@
+# [6.2.0]
+
+* Updated for Flutter 3.47, decoupled Material UI
+
 # [5.0.1]
 
 * Added `theme` property to `ExpandableButton`.

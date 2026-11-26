@@ -1,15 +1,17 @@
 import 'dart:math' as math;
 
-import 'package:expandable/expandable.dart';
-import 'package:flutter/material.dart';
+import 'package:collapsible/collapsible.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Expandable Demo',
+      title: 'Collapsible Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -19,6 +21,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   State createState() {
     return MyHomePageState();
@@ -30,10 +34,10 @@ class MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Expandable Demo"),
+        title: Text("Collapsible Demo"),
       ),
-      body: ExpandableTheme(
-        data: const ExpandableThemeData(
+      body: CollapsibleTheme(
+        data: const CollapsibleThemeData(
           iconColor: Colors.blue,
           useInkWell: true,
         ),
@@ -54,9 +58,11 @@ const loremIpsum =
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 class Card1 extends StatelessWidget {
+  const Card1({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return ExpandableNotifier(
+    return CollapsibleNotifier(
         child: Padding(
       padding: const EdgeInsets.all(10),
       child: Card(
@@ -75,16 +81,16 @@ class Card1 extends StatelessWidget {
             ScrollOnExpand(
               scrollOnExpand: true,
               scrollOnCollapse: false,
-              child: ExpandablePanel(
-                theme: const ExpandableThemeData(
-                  headerAlignment: ExpandablePanelHeaderAlignment.center,
+              child: CollapsiblePanel(
+                theme: const CollapsibleThemeData(
+                  headerAlignment: CollapsiblePanelHeaderAlignment.center,
                   tapBodyToCollapse: true,
                 ),
                 header: Padding(
                     padding: EdgeInsets.all(10),
                     child: Text(
-                      "ExpandablePanel",
-                      style: Theme.of(context).textTheme.body2,
+                      "CollapsiblePanel",
+                      style: Theme.of(context).textTheme.bodyMedium,
                     )),
                 collapsed: Text(
                   loremIpsum,
@@ -108,10 +114,10 @@ class Card1 extends StatelessWidget {
                 builder: (_, collapsed, expanded) {
                   return Padding(
                     padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                    child: Expandable(
+                    child: Collapsible(
                       collapsed: collapsed,
                       expanded: expanded,
-                      theme: const ExpandableThemeData(crossFadePoint: 0),
+                      theme: const CollapsibleThemeData(crossFadePoint: 0),
                     ),
                   );
                 },
@@ -125,6 +131,8 @@ class Card1 extends StatelessWidget {
 }
 
 class Card2 extends StatelessWidget {
+  const Card2({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     buildImg(Color color, double height) {
@@ -148,8 +156,8 @@ class Card2 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Expandable",
-                    style: Theme.of(context).textTheme.body1,
+                    "Collapsible",
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                 ],
               ),
@@ -175,12 +183,12 @@ class Card2 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text(
-                    "Expandable",
-                    style: Theme.of(context).textTheme.body1,
+                    "Collapsible",
+                    style: Theme.of(context).textTheme.bodyLarge,
                   ),
                   Text(
-                    "3 Expandable widgets",
-                    style: Theme.of(context).textTheme.caption,
+                    "3 Collapsible widgets",
+                    style: Theme.of(context).textTheme.bodySmall,
                   ),
                 ],
               ),
@@ -223,7 +231,7 @@ class Card2 extends StatelessWidget {
       );
     }
 
-    return ExpandableNotifier(
+    return CollapsibleNotifier(
         child: Padding(
       padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
       child: ScrollOnExpand(
@@ -232,15 +240,15 @@ class Card2 extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Expandable(
+              Collapsible(
                 collapsed: buildCollapsed1(),
                 expanded: buildExpanded1(),
               ),
-              Expandable(
+              Collapsible(
                 collapsed: buildCollapsed2(),
                 expanded: buildExpanded2(),
               ),
-              Expandable(
+              Collapsible(
                 collapsed: buildCollapsed3(),
                 expanded: buildExpanded3(),
               ),
@@ -253,13 +261,13 @@ class Card2 extends StatelessWidget {
                   Builder(
                     builder: (context) {
                       var controller =
-                          ExpandableController.of(context, required: true)!;
+                          CollapsibleController.of(context, required: true)!;
                       return TextButton(
                         child: Text(
                           controller.expanded ? "COLLAPSE" : "EXPAND",
                           style: Theme.of(context)
                               .textTheme
-                              .button!
+                              .labelLarge!
                               .copyWith(color: Colors.deepPurple),
                         ),
                         onPressed: () {
@@ -279,6 +287,8 @@ class Card2 extends StatelessWidget {
 }
 
 class Card3 extends StatelessWidget {
+  const Card3({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     buildItem(String label) {
@@ -291,12 +301,12 @@ class Card3 extends StatelessWidget {
     buildList() {
       return Column(
         children: <Widget>[
-          for (var i in [1, 2, 3, 4]) buildItem("Item ${i}"),
+          for (var i in [1, 2, 3, 4]) buildItem("Item $i"),
         ],
       );
     }
 
-    return ExpandableNotifier(
+    return CollapsibleNotifier(
         child: Padding(
       padding: const EdgeInsets.all(10),
       child: ScrollOnExpand(
@@ -304,9 +314,9 @@ class Card3 extends StatelessWidget {
           clipBehavior: Clip.antiAlias,
           child: Column(
             children: <Widget>[
-              ExpandablePanel(
-                theme: const ExpandableThemeData(
-                  headerAlignment: ExpandablePanelHeaderAlignment.center,
+              CollapsiblePanel(
+                theme: const CollapsibleThemeData(
+                  headerAlignment: CollapsiblePanelHeaderAlignment.center,
                   tapBodyToExpand: true,
                   tapBodyToCollapse: true,
                   hasIcon: false,
@@ -317,8 +327,8 @@ class Card3 extends StatelessWidget {
                     padding: const EdgeInsets.all(10.0),
                     child: Row(
                       children: [
-                        ExpandableIcon(
-                          theme: const ExpandableThemeData(
+                        CollapsibleIcon(
+                          theme: const CollapsibleThemeData(
                             expandIcon: Icons.arrow_right,
                             collapseIcon: Icons.arrow_drop_down,
                             iconColor: Colors.white,
@@ -333,7 +343,7 @@ class Card3 extends StatelessWidget {
                             "Items",
                             style: Theme.of(context)
                                 .textTheme
-                                .bodyText1!
+                                .bodyLarge!
                                 .copyWith(color: Colors.white),
                           ),
                         ),

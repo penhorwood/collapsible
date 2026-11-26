@@ -1,7 +1,7 @@
 name: example
 description: An example app for Expandable package.
-
 version: 1.0.0+1
+publish_to: none
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -9,15 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  material_ui: any
+  collapsible:
+    path: ../
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  expandable:
-    path: ../
-
 flutter:
-
   uses-material-design: true
 
